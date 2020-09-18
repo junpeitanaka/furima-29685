@@ -28,12 +28,12 @@
 | Column      | Type   | Options                         |
 | ------------| ------ | --------------------------------|
 | buyer_id    | integer| null: false,  foreign_key: true |
-| post_number | integer| null: false                     |
-| prefecture  | string | null: false                     |
+| post_number | string | null: false                     |
+| prefecture  | integer| null: false                     |
 | city        | string | null: false                     |
 | block       | string | null: false                     |
 | building    | string | null: false                     |
-| tele_number | integer| null: false                     |
+| tele_number | string | null: false                     |
 
 
 ### Association
