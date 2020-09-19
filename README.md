@@ -11,15 +11,15 @@
 | password       | string | null: false |
 | last_name      | string | null: false |
 | first_name     | string | null: false |
-| last_name_kata | string | null: false |
-| first_name_kata| string | null: false |
+| last_name_kana | string | null: false |
+| first_name_kana| string | null: false |
 | birthday       | date   | null: false |
 
 
 ### Association
 
 - has_many :purchases
-- has_many :exhibits
+- has_many :items
 - has_many :comments
 
 
@@ -27,29 +27,26 @@
 
 | Column      | Type   | Options                         |
 | ------------| ------ | --------------------------------|
-| buyer_id    | integer| null: false,                    |
 | user_id     | integer| null: false,  foreign_key: true |
 | post_number | string | null: false                     |
 | prefecture  | integer| null: false                     |
 | city        | string | null: false                     |
 | block       | string | null: false                     |
-| building    | string | null: false                     |
+| building    | string |                                 |
 | tele_number | string | null: false                     |
 
 
 ### Association
 
-- belongs_to : user
-- belongs_to : exhibit
-- has_one: management
+- belongs_to :user
+- belongs_to :item
+- has_one :management
 
 
-## exhibits テーブル
+## items テーブル
 
 | Column          | Type   | Options                        |
 | ----------------| ------ | ------------------------------ |
-| exhibitor_id    | integer|                                |
-| user_id         | integer| null: false,  foreign_key:true |
 | item_name       | string | null: false                    |
 | explanation     | string | null: false                    |
 | category_id     | integer| null: false                    |
@@ -64,19 +61,20 @@
 
 - belongs_to :user
 - has_one :purchase
-
+- has_one :managements
 
 ## managements テーブル
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ------------------------------|
 | user_id       | integer    | null: false, foreign_key:true |
-| item_id       | string     | null: false                   |
+| item_id       | integer    | null: false, foreign_key:true |
 
 
 ### Association
 
 - belongs_to :purchase
+- belongs_to :item
 
 
 ## comments テーブル
