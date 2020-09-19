@@ -39,7 +39,6 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :item
 - has_one :management
 
 
@@ -47,8 +46,8 @@
 
 | Column          | Type   | Options                        |
 | ----------------| ------ | ------------------------------ |
-| item_name       | string | null: false                    |
-| explanation     | string | null: false                    |
+| user_id         | integer| null: false, foreign_key:true  |
+| explanation     | text   | null: false                    |
 | category_id     | integer| null: false                    |
 | state_id        | integer| null: false                    |
 | fee_delivery_id | integer| null: false                    |
@@ -60,7 +59,6 @@
 ### Association
 
 - belongs_to :user
-- has_one :purchase
 - has_one :managements
 
 ## managements テーブル
