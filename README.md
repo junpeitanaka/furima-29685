@@ -6,7 +6,6 @@
 
 | Column         | Type   | Options     |
 | ---------------| ------ | ----------- |
-| user_id　　　   | integer| null: false |
 | nickname       | string | null: false |
 | mail           | string | null: false |
 | password       | string | null: false |
@@ -42,6 +41,7 @@
 
 - belongs_to : user
 - belongs_to : exhibit
+- has_one: management
 
 
 ## exhibits テーブル
@@ -64,20 +64,19 @@
 
 - belongs_to :user
 - has_one :purchase
-- has_one :delivery
 
-## deliveries テーブル
 
-| Column        | Type       | Options     |
-| ------------- | ---------- | ------------|
-| deliver_id    | integer    | null: false |
-| fee_delivery  | string     | null: false |
-| area_delivery | string     | null: false |
-| day_delivery  | string     | null: false |
+## managements テーブル
+
+| Column        | Type       | Options                       |
+| ------------- | ---------- | ------------------------------|
+| user_id       | integer    | null: false, foreign_key:true |
+| item_id       | string     | null: false                   |
+
 
 ### Association
 
-- belongs_to :exhibit
+- belongs_to :purchase
 
 
 ## comments テーブル
