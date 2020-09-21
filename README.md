@@ -18,28 +18,29 @@
 
 ### Association
 
-- has_many :purchases
+- has_many :managements
 - has_many :items
 - has_many :comments
 
 
-## purchases テーブル
+## addresses テーブル
 
-| Column      | Type   | Options                         |
-| ------------| ------ | --------------------------------|
-| user_id     | integer| null: false,  foreign_key: true |
-| post_number | string | null: false                     |
-| prefecture  | integer| null: false                     |
-| city        | string | null: false                     |
-| block       | string | null: false                     |
-| building    | string |                                 |
-| tele_number | string | null: false                     |
+| Column       | Type   | Options                         |
+| -------------| ------ | --------------------------------|
+| user         | integer| null: false                     |
+| management_id| integer| null: false                     |
+| post_number  | string | null: false                     |
+| prefecture   | integer| null: false                     |
+| city         | string | null: false                     |
+| block        | string | null: false                     |
+| building     | string |                                 |
+| tele_number  | string | null: false                     |
 
 
 ### Association
 
-- belongs_to :user
-- has_one :management
+- belongs_to :management
+
 
 
 ## items テーブル
@@ -47,6 +48,7 @@
 | Column          | Type   | Options                        |
 | ----------------| ------ | ------------------------------ |
 | user_id         | integer| null: false, foreign_key:true  |
+| management_id   | integer| mull: false, foreign_key:true  |
 | explanation     | text   | null: false                    |
 | category_id     | integer| null: false                    |
 | state_id        | integer| null: false                    |
@@ -59,7 +61,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :managements
+- belongs_to :management
 
 ## managements テーブル
 
@@ -71,8 +73,10 @@
 
 ### Association
 
-- belongs_to :purchase
+- has_one :address
 - belongs_to :item
+- belongs_to :user
+
 
 
 ## comments テーブル
