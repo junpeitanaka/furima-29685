@@ -1,24 +1,90 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column         | Type   | Options     |
+| ---------------| ------ | ----------- |
+| nickname       | string | null: false |
+| mail           | string | null: false |
+| password       | string | null: false |
+| last_name      | string | null: false |
+| first_name     | string | null: false |
+| last_name_kana | string | null: false |
+| first_name_kana| string | null: false |
+| birthday       | date   | null: false |
 
-* System dependencies
 
-* Configuration
+### Association
 
-* Database creation
+- has_many :managements
+- has_many :items
+- has_many :comments
 
-* Database initialization
 
-* How to run the test suite
+## addresses テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column          | Type   | Options                         |
+| ----------------| ------ | --------------------------------|
+| management_id   | integer| null: false, foreign_key:true   |
+| post_number     | string | null: false                     |
+| prefecture_id   | integer| null: false                     |
+| city            | string | null: false                     |
+| block           | string | null: false                     |
+| building        | string |                                 |
+| tele_number     | string | null: false                     |
 
-* Deployment instructions
 
-* ...
+### Association
+
+- belongs_to :management
+
+
+
+## items テーブル
+
+| Column          | Type   | Options                        |
+| ----------------| ------ | ------------------------------ |
+| item_name       | string | null: false                    |
+| user_id         | integer| null: false, foreign_key:true  |
+| explanation     | text   | null: false                    |
+| category_id     | integer| null: false                    |
+| state_id        | integer| null: false                    |
+| fee_delivery_id | integer| null: false                    |
+| area_delivery_id| integer| null: false                    |
+| day_delivery_id | integer| null: false                    |
+| price           | integer| null: false                    |
+
+
+### Association
+
+- belongs_to :user
+- has_one :management
+
+## managements テーブル
+
+| Column        | Type       | Options                       |
+| ------------- | ---------- | ------------------------------|
+| user_id       | integer    | null: false, foreign_key:true |
+| item_id       | integer    | null: false, foreign_key:true |
+
+
+### Association
+
+- has_one :address
+- belongs_to :item
+- belongs_to :user
+
+
+
+## comments テーブル
+
+| Column     | Type       | Options     |
+| ---------- | ---------- | ------------|
+| comment_id | integer    | null: false |
+| text       | text       | null: false |
+
+### Association
+
+- belongs_to :user
