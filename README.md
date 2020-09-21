@@ -27,8 +27,7 @@
 
 | Column       | Type   | Options                         |
 | -------------| ------ | --------------------------------|
-| user         | integer| null: false                     |
-| management_id| integer| null: false                     |
+| management_id| integer| null: false, foreign_key:true   |
 | post_number  | string | null: false                     |
 | prefecture   | integer| null: false                     |
 | city         | string | null: false                     |
@@ -48,7 +47,6 @@
 | Column          | Type   | Options                        |
 | ----------------| ------ | ------------------------------ |
 | user_id         | integer| null: false, foreign_key:true  |
-| management_id   | integer| mull: false, foreign_key:true  |
 | explanation     | text   | null: false                    |
 | category_id     | integer| null: false                    |
 | state_id        | integer| null: false                    |
@@ -61,7 +59,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :management
+- has_one :management
 
 ## managements テーブル
 
