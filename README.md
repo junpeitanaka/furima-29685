@@ -25,15 +25,15 @@
 
 ## addresses テーブル
 
-| Column       | Type   | Options                         |
-| -------------| ------ | --------------------------------|
-| management_id| integer| null: false, foreign_key:true   |
-| post_number  | string | null: false                     |
-| prefecture   | integer| null: false                     |
-| city         | string | null: false                     |
-| block        | string | null: false                     |
-| building     | string |                                 |
-| tele_number  | string | null: false                     |
+| Column          | Type   | Options                         |
+| ----------------| ------ | --------------------------------|
+| management_id   | integer| null: false, foreign_key:true   |
+| post_number     | string | null: false                     |
+| prefecture_id   | integer| null: false                     |
+| city            | string | null: false                     |
+| block           | string | null: false                     |
+| building        | string |                                 |
+| tele_number     | string | null: false                     |
 
 
 ### Association
@@ -46,6 +46,7 @@
 
 | Column          | Type   | Options                        |
 | ----------------| ------ | ------------------------------ |
+| item_name       | string | null: false                    |
 | user_id         | integer| null: false, foreign_key:true  |
 | explanation     | text   | null: false                    |
 | category_id     | integer| null: false                    |
