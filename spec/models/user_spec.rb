@@ -10,8 +10,6 @@ RSpec.describe User, type: :model do
     end
 
     it 'nicknameがない場合は登録できないこと' do
-      # user = build(:user, nickname: nil)
-
       @user.nickname = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Nickname can't be blank")
@@ -79,7 +77,7 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Encrypted password can't be blank")
     end
 
-    it 'passwordが6文字以下であれば登録できるないこと' do
+    it 'passwordが6文字以下であれば登録できないこと' do
       @user.password = '00000'
       @user.password_confirmation = '00000'
       @user.valid?
@@ -87,8 +85,8 @@ RSpec.describe User, type: :model do
     end
 
     it 'password6文字以上であれば登録できること' do
-      @user.password = '000000'
-      @user.password_confirmation = '000000'
+      @user.password = '00000a'
+      @user.password_confirmation = '00000a'
       expect(@user).to be_valid
     end
 
