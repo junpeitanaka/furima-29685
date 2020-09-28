@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'items/index'
   root to: "items#index"
 
+  
+  get 'items', to: 'items#index'
 
+  resources :items, only: [:new]
 
 end
 
