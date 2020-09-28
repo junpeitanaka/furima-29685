@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
 
-  def new
-    @item = Item.new
-  end
   
+  has_one_attached :image
 end
+
