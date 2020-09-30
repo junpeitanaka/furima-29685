@@ -1,4 +1,4 @@
-class Prefecture < ActiveHash::Base
+class AreaDelivery < ActiveHash::Base
   
 
   self.data = [
