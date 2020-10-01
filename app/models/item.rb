@@ -18,11 +18,11 @@ class Item < ApplicationRecord
   belongs_to_active_hash :fee_delivery
   belongs_to_active_hash :day_delivery
 
-  with_options presence: true do
-    validates :area_delivery_id, numericality: { other_than: 1 }
-    validates :category_id, numericality: { other_than: 1 }
-    validates :state_id, numericality: { other_than: 1 }
-    validates :fee_delivery_id, numericality: { other_than: 1 }
-    validates :day_delivery_id, numericality: { other_than: 1 }
+  with_options presence: true,numericality: { other_than: 1 } do
+    validates :area_delivery_id 
+    validates :category_id
+    validates :state_id
+    validates :fee_delivery_id
+    validates :day_delivery_id
   end
 end

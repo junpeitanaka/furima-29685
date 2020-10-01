@@ -17,13 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     document.getElementById('add-tax-price').innerHTML = commission;
     document.getElementById('profit').innerHTML = total_price;
-
-    
   })
-
-
- 
- 
 })
 
 
