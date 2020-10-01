@@ -11,7 +11,7 @@ class Category < ActiveHash::Base
     { id: 9, name: 'スポーツ・レジャー' },
     { id: 11, name: 'ハンドメイド' },
     { id: 12, name: 'ハンドメイド' },
-    { id: 13, name: 'その他' },
+    { id: 13, name: 'その他' }
 
   ]
-  end
+end

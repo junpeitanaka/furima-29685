@@ -1,38 +1,27 @@
 class ItemsController < ApplicationController
-
   before_action :move_to_index, except: [:index]
-
 
   def new
     @item = Item.new
   end
 
-  def create 
-    @item = Item.find(item_params)
+  def create
+    @item = Item.new(item_params)
     if @item.save
-      redirect_to action: :index
- #メソッドはfindなのかな？？
-
+      redirect_to root_path
     else
-      redirect_to controller: :items, action: :new
+      render :new
     end
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
 
   private
 
   def item_params
-   params.require(:item).permit(:image,:item_name, :user_id, :explanation,
-    :category_id, :state_id,:fee_delivery_id,:area_delivery_id,:day_delivery_id,:price)
+    params.require(:item).permit(:item_name, :explanation,
+                                 :category_id, :state_id, :fee_delivery_id, :area_delivery_id, :day_delivery_id, :price, :image).merge(user_id: current_user.id)
   end
-  
-
-  
 end
-
-

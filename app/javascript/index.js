@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
   const log = document.getElementById('item-price');
 
   log.addEventListener('keyup', function(){
-    console.log(price);
+    // console.log(price);
 
     this.setAttribute("price", "price-input")
     const price = log.value;
