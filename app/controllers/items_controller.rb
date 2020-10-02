@@ -25,7 +25,8 @@ class ItemsController < ApplicationController
   def destroy
   end
 
-  def order
+  def editor
+
   end
 
   private
