@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :new, ]
 
   def new
     @item = Item.new
@@ -25,7 +25,9 @@ class ItemsController < ApplicationController
   def destroy
   end
 
-  def order
+  def edit
+    @item = Item.find(params[:id])
+
   end
 
   private
