@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    
   end
 
   def create
@@ -14,8 +15,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
+  
+
+  def show
+    @item = Item.find(params[:id])
+    
+
   end
 
   private
@@ -24,4 +29,10 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:item_name, :explanation,
                                  :category_id, :state_id, :fee_delivery_id, :area_delivery_id, :day_delivery_id, :price, :image).merge(user_id: current_user.id)
   end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
+  
+ 
 end
