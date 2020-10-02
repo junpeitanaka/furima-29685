@@ -37,9 +37,8 @@ RSpec.describe Item, type: :model do
     it 'カテゴリー1を選択すると登録できないこと' do
       @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category must be other than 1")
+      expect(@item.errors.full_messages).to include('Category must be other than 1')
     end
-
 
     it '商品状態を選択しなければ登録できないこと' do
       @item.state_id = nil
@@ -50,10 +49,8 @@ RSpec.describe Item, type: :model do
     it '商品状態1を選択すると登録できないこと' do
       @item.state_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("State must be other than 1")
+      expect(@item.errors.full_messages).to include('State must be other than 1')
     end
-
-    
 
     it '配送料の負担を選択しなければ登録できないこと' do
       @item.fee_delivery_id = nil
@@ -64,7 +61,7 @@ RSpec.describe Item, type: :model do
     it '配送料の負担1を選択すると登録できないこと' do
       @item.fee_delivery_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Fee delivery must be other than 1")
+      expect(@item.errors.full_messages).to include('Fee delivery must be other than 1')
     end
 
     it '配送元の地域を選択しなければ登録できないこと' do
@@ -76,7 +73,7 @@ RSpec.describe Item, type: :model do
     it '配送元の地域1を選択すると登録できないこと' do
       @item.area_delivery_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Area delivery must be other than 1")
+      expect(@item.errors.full_messages).to include('Area delivery must be other than 1')
     end
 
     it '発送までの日数の選択がなければ登録できないこと' do
@@ -88,7 +85,7 @@ RSpec.describe Item, type: :model do
     it '発送までの日数の選択がなければ登録できないこと' do
       @item.day_delivery_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Day delivery must be other than 1")
+      expect(@item.errors.full_messages).to include('Day delivery must be other than 1')
     end
 
     it '価格がない場合は登録できないこと' do
@@ -114,7 +111,5 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
     end
-
-    
   end
 end
