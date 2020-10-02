@@ -3,7 +3,10 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    
+  end
+
+  def index
+    @items = Item.all.order("created_at DESC")
   end
 
   def create
@@ -15,12 +18,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  
-
   def show
     @item = Item.find(params[:id])
-    
-
   end
 
   private
@@ -33,6 +32,4 @@ class ItemsController < ApplicationController
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
-  
- 
 end
