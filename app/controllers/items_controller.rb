@@ -25,16 +25,15 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     if @item.destroy
-     redirect_to root_path
+      redirect_to root_path
     else
-     render :edit
+      render :edit
     end
   end
 
   def edit
     @item = Item.find(params[:id])
   end
-
 
   def update
     @item = Item.find(params[:id])
