@@ -43,6 +43,9 @@ class ItemsController < ApplicationController
   end
 
   private
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:item_name, :explanation,
@@ -53,7 +56,3 @@ class ItemsController < ApplicationController
     redirect_to action: :index unless user_signed_in?
   end
 end
-
-  def set_item
-    @item = Item.find(params[:id])
-  end
