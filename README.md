@@ -18,7 +18,7 @@
 
 ### Association
 
-- has_many :managements
+- has_many :orders
 - has_many :items
 - has_many :comments
 
@@ -38,7 +38,7 @@
 
 ### Association
 
-- belongs_to :management
+- belongs_to :order
 
 
 
@@ -60,9 +60,9 @@
 ### Association
 
 - belongs_to :user
-- has_one :management
+- has_one :order
 
-## managements テーブル
+## orders テーブル
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ------------------------------|
@@ -88,4 +88,5 @@
 ### Association
 
 - belongs_to :user
+
 
