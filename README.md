@@ -27,7 +27,7 @@
 
 | Column          | Type   | Options                         |
 | ----------------| ------ | --------------------------------|
-| management_id   | integer| null: false, foreign_key:true   |
+| order_id        | integer| null: false, foreign_key:true   |
 | post_number     | string | null: false                     |
 | prefecture_id   | integer| null: false                     |
 | city            | string | null: false                     |
