@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :new, :update, :destroy]
   before_action :set_item, only: [:edit, :show, :destroy, :update]
 
-
   def new
     @item = Item.new
   end
@@ -43,6 +42,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def set_item
     @item = Item.find(params[:id])
   end

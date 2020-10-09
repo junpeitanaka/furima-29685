@@ -18,7 +18,7 @@
 
 ### Association
 
-- has_many :managements
+- has_many :orders
 - has_many :items
 - has_many :comments
 
@@ -27,7 +27,7 @@
 
 | Column          | Type   | Options                         |
 | ----------------| ------ | --------------------------------|
-| management_id   | integer| null: false, foreign_key:true   |
+| order_id        | integer| null: false, foreign_key:true   |
 | post_number     | string | null: false                     |
 | prefecture_id   | integer| null: false                     |
 | city            | string | null: false                     |
@@ -38,7 +38,7 @@
 
 ### Association
 
-- belongs_to :management
+- belongs_to :order
 
 
 
@@ -60,9 +60,9 @@
 ### Association
 
 - belongs_to :user
-- has_one :management
+- has_one :order
 
-## managements テーブル
+## orders テーブル
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ------------------------------|
@@ -88,4 +88,5 @@
 ### Association
 
 - belongs_to :user
+
 
