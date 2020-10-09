@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   before_action :correct_user, only: [:index, :create]
   before_action :set_item, only: [:index, :create]
+  before_action :check_buyed_item, only: [:index]
+
 
   def index
     @user_order = UserOrder.new
@@ -48,10 +50,18 @@ def pay_item
   )
 end
 
+def check_buyed_item
+  @item = Item.find(params[:item_id])
+  if @item.order.present?
+    redirect_to root_path
+  end
+end
+
 def correct_user
   @item = Item.find(params[:item_id])
-  redirect_to root_path if :user_id == current_user
+  redirect_to root_path if @item.user_id == current_user
 end
+
 
 
 
