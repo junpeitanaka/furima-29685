@@ -1,14 +1,13 @@
 class OrdersController < ApplicationController
   before_action :correct_user, only: [:index, :create]
+  before_action :set_item, only: [:index, :create]
 
   def index
-    @orders = Item.find(params[:item_id])
     @user_order = UserOrder.new
     redirect_to root_path unless user_signed_in?
   end
 
   def create
-    @orders = Item.find(params[:item_id])
     @user_order = UserOrder.new(order_params)
     if @user_order.valid?
       pay_item
@@ -21,6 +20,11 @@ class OrdersController < ApplicationController
 end
 
 private
+
+def set_item
+  @item = Item.find(params[:item_id])
+end
+
 def order_params
   params.permit(
     :token,
@@ -45,6 +49,9 @@ def pay_item
 end
 
 def correct_user
-  @orders = Item.find(params[:item_id])
-  redirect_to root_path if @orders.id == current_user
+  @item = Item.find(params[:item_id])
+  redirect_to root_path if :user_id == current_user
 end
+
+
+
