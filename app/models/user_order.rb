@@ -8,7 +8,8 @@ class UserOrder
     validates :post_number, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :city
     validates :block
-    validates :tele_number, format: {with: /\A\d{11}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :tele_number, format: {with: /\A\d{11}\z/, message: "is invalid"}
+    validates :token
   end
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
 

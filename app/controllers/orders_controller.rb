@@ -1,16 +1,19 @@
 class OrdersController < ApplicationController
 
+  before_action :correct_user, only: [:index,:create]
+
   def index
-    
     @orders = Item.find(params[:item_id])
     @user_order = UserOrder.new
+    unless user_signed_in?   
+      redirect_to root_path
+    end
   end
 
   
   def create
     @orders = Item.find(params[:item_id])
     @user_order = UserOrder.new(order_params)
-    
     if @user_order.valid?
        pay_item
        @user_order.save  
@@ -36,6 +39,7 @@ private
  end
 
  def pay_item
+
   @item = Item.find(params[:item_id])
   Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
    Payjp::Charge.create(
@@ -45,4 +49,9 @@ private
    )
  end
 
- 
+ def correct_user
+  @orders = Item.find(params[:item_id])
+   if @orders.id == current_user
+   redirect_to root_path
+   end
+  end
