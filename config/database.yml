@@ -17,6 +17,7 @@ default: &default
   password:
   socket: /tmp/mysql.sock
 
+  
 development:
   <<: *default
   database: furima_29685_development
@@ -50,5 +51,7 @@ test:
 production:
   <<: *default
   database: furima_29685_production
-  username: furima_29685
-  password: <%= ENV['FURIMA_29685_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+
