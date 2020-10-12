@@ -8,6 +8,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("index")
 require("../card")
+require('../preview')  
 
 
 

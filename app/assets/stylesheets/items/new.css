@@ -73,6 +73,9 @@
 /* /共通 */
 
 /* 出品画像 */
+
+
+
 .img-upload {
   display: flex;
   justify-content: space-between;
@@ -92,6 +95,12 @@
 /* /出品画像 */
 
 /* 商品名と商品説明 */
+
+/* img {
+width:100
+} */
+
+
 .new-items {
   padding: 2vh 0;
 }
