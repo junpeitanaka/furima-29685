@@ -89,4 +89,3 @@
 
 - belongs_to :user
 
-
