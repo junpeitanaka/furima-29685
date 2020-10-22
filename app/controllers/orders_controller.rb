@@ -41,6 +41,7 @@ def order_params
   ).merge(user_id: current_user.id)
 end
 
+
 def pay_item
   @item = Item.find(params[:item_id])
   Payjp.api_key = ENV['PAYJP_SECRET_KEY']
